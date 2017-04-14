@@ -25,24 +25,24 @@ Check the README.md in the calculator code directory for instructions on how to 
 
 You need to write unit tests to ensure that the majority of functions in the calculator operate correctly:
 
-  calculator.add()
-  calculator.subtract()
-  calculator.multiply()
-  calculator.divide()
-  calculator.numberClick()
-  calculator.operatorClick()
-  calculator.clearClick()
+* calculator.add()
+* calculator.subtract()
+* calculator.multiply()
+* calculator.divide()
+* calculator.numberClick()
+* calculator.operatorClick()
+* calculator.clearClick()
   
   
 #### The program should correctly perform the following tasks:
 
-  multiply 3x5 and get 15
-  divide 21/7 and get 3
-  add 1+4 and get 5
-  subtract 7-4 and get 3
-  concatenate multiple number button clicks
-  chain multiple operations together
-  clear the running total without affecting the calculation
+* multiply 3x5 and get 15
+*  divide 21/7 and get 3
+*  add 1+4 and get 5
+*  subtract 7-4 and get 3
+*  concatenate multiple number button clicks
+*  chain multiple operations together
+*  clear the running total without affecting the calculation
 
 To run tests: npm test in console. 
 
@@ -59,17 +59,17 @@ Carry out integration and acceptance testing on the calculator code.
 You need to write integration/acceptance tests to ensure all of the units of code work together in the browser to perform as the user would wish.
 
 You should test for the following:
- Do the number buttons work to update the display of the running total?
- Do each of the arithmetical operations work to update the display with the result of the operation?
- Can we chain multiple operations together?
- Does it work as expected for a range of numbers? (positive, negative, decimals, large numbers)
-What does the code do in exceptional circumstances?
-If you divide by zero, what is the effect?
-Can you write a test to describe what you'd prefer to happen under this circumstance, and then correct to code to make that test pass.
+* Do the number buttons work to update the display of the running total?
+* Do each of the arithmetical operations work to update the display with the result of the operation?
+* Can we chain multiple operations together?
+* Does it work as expected for a range of numbers? (positive, negative, decimals, large numbers)
+* What does the code do in exceptional circumstances?
+* If you divide by zero, what is the effect?
+* Can you write a test to describe what you'd prefer to happen under this circumstance, and then correct to code to make that test pass.
 
 To run these tests you will need to set up Selenium and webdriver.
 
-In termial:
+In terminal:
 
 ```
 npm install -g webdriver-manager
