@@ -6,7 +6,7 @@ var expect = chai.expect;
 describe('calculator functionality', function() {
   var running_total;
 
- beforeEach(function() {
+  beforeEach(function() {
    browser.ignoreSynchronization = true;
    browser.get('http://localhost:3000');
    running_total = element(by.css('#running_total'));
@@ -32,7 +32,7 @@ describe('calculator functionality', function() {
   element(by.css('#number9')).click();
   element(by.css('#number0')).click();
   expect(running_total.getAttribute('value')).to.eventually.equal('1234567890');
- });
+});
 
  it('should update the display when a new operator button is pressed', function(){
   element(by.css('#number1')).click();
@@ -44,7 +44,7 @@ describe('calculator functionality', function() {
 
 
 
- });
+});
 
  it('can chain multiple operations together', function(){
   element(by.css('#number1')).click();
@@ -54,7 +54,7 @@ describe('calculator functionality', function() {
   element(by.css('#number3')).click();
   element(by.css('#operator_equals')).click();
   expect(running_total.getAttribute('value')).to.eventually.equal('9');
- });
+});
 
  it('works as expected for positive numbers', function(){
   element(by.css('#number7')).click();
@@ -62,20 +62,57 @@ describe('calculator functionality', function() {
   element(by.css('#number2')).click();
   element(by.css('#operator_equals')).click();
   expect(running_total.getAttribute('value')).to.eventually.equal('9');
- });
+});
 
  it('works as expected for negative numbers', function(){
-  element(by.css('#number7')).click();
+  element(by.css('#number2')).click();
   element(by.css('#operator_subtract')).click();
+  element(by.css('#number7')).click();
+  element(by.css('#operator_equals')).click();
+  expect(running_total.getAttribute('value')).to.eventually.equal('-5');
+});
+
+ it('works as expected for decimal numbers', function(){
+  element(by.css('#number7')).click();
+  element(by.css('#operator_divide')).click();
   element(by.css('#number2')).click();
   element(by.css('#operator_equals')).click();
-  expect(running_total.getAttribute('value')).to.eventually.equal('-9');
+  expect(running_total.getAttribute('value')).to.eventually.equal('3.5');
+});
+
+ it('works as expected for large numbers', function(){
+  element(by.css('#number7')).click();
+  element(by.css('#number7')).click();
+  element(by.css('#number7')).click();
+  element(by.css('#number7')).click();
+  element(by.css('#number7')).click();
+  element(by.css('#number7')).click();
+  element(by.css('#number7')).click();
+  element(by.css('#number7')).click();
+  element(by.css('#number7')).click();
+  element(by.css('#number7')).click();
+  element(by.css('#operator_multiply')).click();
+  element(by.css('#number2')).click();
+  element(by.css('#operator_equals')).click();
+  expect(running_total.getAttribute('value')).to.eventually.equal('15555555554');
+});
+
+ it('reacts to exceptional circumstances', function(){
+  for (var i = 0; i <= 23; i++){
+    element(by.css('#number1')).click();
+  }
+  expect(running_total.getAttribute('value')).to.eventually.equal('Infinity');
+});
+
+ it('shows error message when dividing by zero', function(){
+  element(by.css('#number1')).click();
+  element(by.css('#operator_divide')).click();
+  element(by.css('#number0')).click();
+  element(by.css('#operator_equals')).click();
+  expect(running_total.getAttribute('value')).to.eventually.equal('Infinity');
+
+
+
  });
-
- // it('works as expected for decimal numbers');
-
- // it('works as expected for large numbers');
-
- // it('shows error message when dividing by zero');
 
 });
