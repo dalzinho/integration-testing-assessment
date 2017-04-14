@@ -20,7 +20,11 @@ Calculator.prototype = {
   },
 
   divide: function(number){
-    this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+    if(number === 0){
+      this.runningTotal = 'https://www.mathsisfun.com/numbers/dividing-by-zero.html';
+    } else {
+      this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+    }
   },
 
   numberClick: function(number) {
