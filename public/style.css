@@ -1,0 +1,43 @@
+#calc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+}
+
+#running_total{
+  width: 400px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px ;
+  font-size: x-large;
+
+}
+
+td {
+  width: 100px;
+  height: 100px;
+  font-size: x-large;
+
+}
+
+.operator {
+  width: 100px;
+  height: 100px;
+  font-size: x-large;
+
+}
+
+.number {
+  width: 100px;
+  height: 100px;
+  font-size: x-large;
+
+}
+
+#clear {
+  width: 100px;
+  height: 100px;
+  font-size: x-large;
+
+}
